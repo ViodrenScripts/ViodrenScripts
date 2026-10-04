@@ -35,11 +35,17 @@ const scripts = [
   {
     name:"Meu primeiro script (Ride a Pet)",
     game:"Ride a Pet",
-    description:"Script para Ride a Pet (atualização 2).",
-    code:`loadstring(game:HttpGet("https://pastebin.com/raw/ST7xYxpu"))()`
+    description:"Script para Ride a Pet.",
+    code:loadstring(game:HttpGet("https://pastebin.com/raw/ST7xYxpu"))()
+  },
+
+  {
+    name:"(ATUALIZADO) Ride a Pet",
+    game:"Ride a Pet",
+    description:"(ATUALIZADO) Script para Ride a Pet depois da nova atualização do jogo.",
+    code:loadstring(game:HttpGet("https://raw.githubusercontent.com/MUshihara/Serenity-hub/main/loader.lua"))()
   }
 ];
-
 const box=document.getElementById("scripts"), search=document.getElementById("search"), empty=document.getElementById("empty");
 function render(){
  const q=search.value.toLowerCase();
