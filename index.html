@@ -15,7 +15,7 @@ main{width:min(1000px,92%);margin:30px auto}.grid{display:grid;grid-template-col
 button{border:0;border-radius:10px;padding:11px 15px;background:#8b5cf6;color:#fff;font-weight:bold;cursor:pointer}
 button:hover{background:#7549dc}.code{display:none;margin-top:14px;background:#08080d;border-radius:10px;padding:14px;white-space:pre-wrap;overflow:auto;color:#ddd;font:13px Consolas,monospace}
 .msg{text-align:center;color:#999;margin:30px}.copy{margin-top:10px}
-footer{text-align:center;color:#666;padding:30px}
+footer{text-align:center;color:#8f879e;padding:30px}.visit-counter{margin-top:12px;display:inline-flex;align-items:center;gap:8px;padding:10px 15px;border:1px solid #38284f;border-radius:12px;background:#151522;color:#c7b2f5;font-size:14px}.visit-counter strong{color:#fff;font-size:17px}
 </style>
 </head>
 <body>
@@ -28,7 +28,39 @@ footer{text-align:center;color:#666;padding:30px}
 <div class="grid" id="scripts"></div>
 <div class="msg" id="empty" style="display:none">Nenhum script encontrado.</div>
 </main>
-<footer>ViodrenScripts</footer>
+<footer>ViodrenScripts<br><div class="visit-counter"><span>👁️ Visitas únicas:</span> <strong id="visitCount">A carregar...</strong></div><div style="font-size:11px;color:#6f687d;margin-top:8px">Cada navegador é contado uma vez neste dispositivo.</div></footer>
+<script>
+/*
+  Contador partilhado: incrementa apenas na primeira visita deste navegador.
+  O registo local evita contar novamente quando a pessoa atualiza a página.
+  Limitação: outro navegador/dispositivo ou dados apagados podem contar de novo.
+*/
+(async function loadVisitCounter(){
+  const output = document.getElementById("visitCount");
+  const storageKey = "viodrenscripts_visit_counted_v1";
+  const apiBase = "https://abacus.jasoncameron.dev";
+  const namespace = "viodrenscripts";
+  const counterKey = "visitas-unicas-v1";
+
+  try {
+    if (!localStorage.getItem(storageKey)) {
+      const hit = await fetch(`${apiBase}/hit/${namespace}/${counterKey}`);
+      if (!hit.ok) throw new Error("Não foi possível registar a visita.");
+      localStorage.setItem(storageKey, "1");
+    }
+    const response = await fetch(`${apiBase}/get/${namespace}/${counterKey}`);
+    if (!response.ok) throw new Error("Não foi possível ler o contador.");
+    const data = await response.json();
+    const total = Number(data.value);
+    if (!Number.isFinite(total)) throw new Error("Resposta inválida do contador.");
+    output.textContent = total.toLocaleString("pt-PT");
+  } catch (error) {
+    output.textContent = "Indisponível";
+    console.error("Erro no contador de visitas:", error);
+  }
+})();
+</script>
+
 <script>
 /* ===== ADICIONA OS TEUS SCRIPTS AQUI ===== */
 const scripts = [
@@ -72,5 +104,3 @@ function showCode(i){
 }
 search.addEventListener("input",render); render();
 </script>
-</body>
-</html>
