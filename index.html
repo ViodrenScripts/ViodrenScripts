@@ -116,8 +116,7 @@ function render(){
    const img=document.createElement("img");
    img.className="card-image"; img.src=s.image; img.alt="Imagem de "+s.game;
    img.onerror=()=>{img.style.display="none";};
-   const note=document.createElement("p"); note.className="image-note"; note.textContent="Imagem personalizável — podes trocar o endereço no campo image do código.";
-   c.append(img,note);
+   c.append(img);
    box.appendChild(c);
  });
 }
