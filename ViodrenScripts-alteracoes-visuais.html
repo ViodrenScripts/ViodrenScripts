@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ViodrenScripts</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#0b0b12;color:#fff;font-family:Arial,sans-serif}
+header{padding:32px 20px;text-align:center;background:linear-gradient(135deg,#17102b,#0b0b12)}
+h1{margin:0;font-size:38px}h1 span{color:#8b5cf6}.sub{color:#aaa;margin:8px 0 22px}
+.search{width:min(650px,100%);padding:14px 16px;border-radius:12px;border:1px solid #303044;background:#151522;color:#fff;outline:none}
+.tabs{display:flex;justify-content:center;gap:10px;margin-top:16px;flex-wrap:wrap}.tab{border:1px solid #383844;border-radius:10px;padding:10px 16px;background:#151522;color:#aaa;font-weight:bold;cursor:pointer}.tab.active{background:#8754dc;color:#fff}
+main{width:min(1000px,92%);margin:30px auto}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+.card{background:#151522;border:1px solid #292941;border-radius:16px;padding:20px}.card h2{margin-top:0}
+.tag{display:inline-block;color:#b99cff;background:#251a3e;border-radius:20px;padding:5px 9px;font-size:12px}
+button{border:0;border-radius:10px;padding:11px 15px;background:#8b5cf6;color:#fff;font-weight:bold;cursor:pointer}
+button:hover{background:#7549dc}.code{display:none;margin-top:14px;background:#08080d;border-radius:10px;padding:14px;white-space:pre-wrap;overflow:auto;color:#ddd;font:13px Consolas,monospace}
+.msg{text-align:center;color:#999;margin:30px}.copy{margin-top:10px}.card-image{display:block;width:100%;height:210px;object-fit:cover;border-radius:12px;margin-top:18px;background:#211a30}.image-note{font-size:11px;color:#8f879e;margin:8px 0 0;text-align:center}
+footer{text-align:center;color:#8f879e;padding:30px}.visit-counter{margin-top:12px;display:inline-flex;align-items:center;gap:8px;padding:10px 15px;border:1px solid #38284f;border-radius:12px;background:#151522;color:#c7b2f5;font-size:14px}.visit-counter strong{color:#fff;font-size:17px}
+.report-problem{width:min(760px,92%);margin:10px auto 28px;padding:26px 20px;text-align:center;background:linear-gradient(145deg,#1b1430,#13131f);border:1px solid #3a2856;border-radius:18px;box-shadow:0 12px 35px rgba(0,0,0,.2)}
+.report-icon{font-size:28px;margin-bottom:8px}.report-problem h2{margin:0 0 9px;font-size:23px;color:#fff}.report-problem p{color:#aaa9ba;line-height:1.6;margin:0 auto 18px;max-width:520px;font-size:14px}
+.report-button{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 18px;border-radius:11px;background:#8b5cf6;color:#fff;font-weight:bold;text-decoration:none;transition:background .2s,transform .2s}
+.report-button:hover{background:#7549dc;transform:translateY(-1px)}.report-button:focus-visible{outline:2px solid #c4b5fd;outline-offset:3px}
+.youtube-button{display:inline-flex;align-items:center;justify-content:center;gap:10px;margin:0 0 20px;padding:12px 18px;border-radius:11px;background:#e62117;color:#fff;text-decoration:none;font-weight:bold;transition:background .2s,transform .2s}.youtube-button:hover{background:#c91d14;transform:translateY(-1px)}.youtube-button:focus-visible{outline:2px solid #c4b5fd;outline-offset:3px}.youtube-icon{width:22px;height:22px;display:block;flex:none}
+.favorite-btn{margin:0 0 10px;background:#29233a;border:1px solid #4b3a68;color:#d8c7ff}.favorite-btn:hover{background:#3b2c55}.favorite-btn.is-favorite{background:#5a3a83;border-color:#a78bfa;color:#fff}.favorite-filter{background:#123b38;border-color:#267a70;color:#a7f3d0}.favorite-filter:hover{background:#19534d}.favorite-filter.active{background:#0f766e;border-color:#5eead4;color:#fff;box-shadow:0 0 0 1px rgba(94,234,212,.22)}.history-filter{background:#493018;border-color:#8f5b25;color:#fed7aa}.history-filter:hover{background:#62401f}.history-filter.active{background:#b96b16;border-color:#fbbf24;color:#fff;box-shadow:0 0 0 1px rgba(251,191,36,.22)}
+.stats-panel{margin:0 0 24px;padding:18px;background:linear-gradient(145deg,#171326,#12121d);border:1px solid #332547;border-radius:16px}
+.latest-panel{margin:0 0 24px;padding:18px;background:linear-gradient(145deg,#19142a,#12121d);border:1px solid #3b2b56;border-radius:16px}
+.latest-heading{display:flex;align-items:center;gap:9px;margin:0 0 6px;font-size:20px}
+.latest-subtitle{color:#aaa9ba;font-size:13px;margin:0 0 15px;line-height:1.5}
+.latest-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}
+.latest-card{display:flex;flex-direction:column;align-items:flex-start;gap:10px;padding:15px;background:#151522;border:1px solid #302742;border-radius:13px;min-width:0}
+.latest-card h3{font-size:15px;line-height:1.4;margin:0;overflow-wrap:anywhere}
+.latest-card .tag{margin-top:1px}
+.latest-card button{margin-top:auto;width:100%}
+.history-panel{margin:0 0 24px;padding:18px;background:linear-gradient(145deg,#171326,#12121d);border:1px solid #332547;border-radius:16px}
+.history-heading{display:flex;align-items:center;gap:9px;margin:0 0 6px;font-size:20px}
+.history-subtitle{color:#aaa9ba;font-size:13px;margin:0 0 15px;line-height:1.5}
+.history-list{display:grid;gap:10px}
+.history-entry{padding:14px 15px;background:#151522;border:1px solid #302742;border-left:3px solid #8b5cf6;border-radius:11px}
+.history-entry-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.history-entry h3{font-size:15px;line-height:1.4;margin:0;overflow-wrap:anywhere}
+.history-date{font-size:12px;color:#c4b5fd;white-space:nowrap}
+.history-game{display:inline-block;margin:8px 0 5px;color:#b99cff;background:#251a3e;border-radius:20px;padding:4px 8px;font-size:11px}
+.history-entry p{font-size:13px;line-height:1.5;color:#c3c0ce;margin:4px 0 0}
+.history-note{font-size:11px;color:#8f879e;line-height:1.5;margin:12px 0 0}
+.latest-new{display:inline-block;padding:4px 8px;border-radius:7px;background:#422b17;color:#ffd28a;font-size:11px;font-weight:bold;letter-spacing:.3px}
+.stats-heading{display:flex;align-items:center;gap:9px;margin:0 0 14px;font-size:18px}
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(135px,1fr));gap:10px}
+.stat-card{padding:14px 12px;background:#151522;border:1px solid #292941;border-radius:12px;min-width:0}
+.stat-label{font-size:12px;color:#aaa9ba;line-height:1.4}
+.stat-value{font-size:25px;font-weight:800;color:#fff;margin-top:7px}
+.stat-card small{display:block;color:#8f879e;font-size:11px;margin-top:4px}
+</style>
+</head>
+<body>
+<header>
+<h1>Viodren<span>Scripts</span></h1>
+<div class="sub">Roblox Scripts • Atualizado pelo Viodren</div>
+<a class="youtube-button" href="https://youtube.com/@viodren_scripts" target="_blank" rel="noopener noreferrer" aria-label="Visitar o canal de YouTube ViodrenScripts"><svg class="youtube-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2" y="5" width="20" height="14" rx="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 9l5 3-5 3z" fill="currentColor"/></svg>Visitar canal no YouTube</a><br>
+<input class="search" id="search" placeholder="🔎 Procurar um script...">
+<div class="tabs"><button class="tab active" data-game="Ride a Pet">🐾 Ride a Pet</button><button class="tab" data-game="Steal a Egg">🥚 Steal a Egg</button><button class="tab favorite-filter" data-game="__favorites">⭐ Favoritos</button><button class="tab history-filter" data-game="__history">🗂️ Histórico de atualizações</button></div>
+</header>
+<main>
+<section class="stats-panel" id="statsPanel" aria-labelledby="stats-title">
+  <h2 class="stats-heading" id="stats-title">📊 Estatísticas do ViodrenScripts</h2>
+  <div class="stats-grid">
+    <div class="stat-card"><div class="stat-label">📜 Scripts disponíveis</div><div class="stat-value" id="statTotal">—</div><small>Todos os jogos</small></div>
+    <div class="stat-card"><div class="stat-label">🐾 Ride a Pet</div><div class="stat-value" id="statRide">—</div><small>Scripts deste jogo</small></div>
+    <div class="stat-card"><div class="stat-label">🥚 Steal a Egg</div><div class="stat-value" id="statEgg">—</div><small>Scripts deste jogo</small></div>
+    <div class="stat-card"><div class="stat-label">⭐ Os teus favoritos</div><div class="stat-value" id="statFavorites">—</div><small>Guardados neste navegador</small></div>
+  </div>
+</section>
+<section class="latest-panel" id="latestPanel" aria-labelledby="latest-title">
+  <h2 class="latest-heading" id="latest-title">🆕 Últimos scripts adicionados</h2>
+  <p class="latest-subtitle">Encontra rapidamente os scripts mais recentes do ViodrenScripts.</p>
+  <div class="latest-grid" id="latestScripts"></div>
+</section>
+<section class="history-panel" id="historyPanel" aria-labelledby="history-title" style="display:none">
+  <h2 class="history-heading" id="history-title">🗂️ Histórico de atualizações dos scripts</h2>
+  <p class="history-subtitle">Consulta os registos das versões e alterações publicadas no ViodrenScripts.</p>
+  <div class="history-list" id="scriptUpdateHistory"></div>
+  <p class="history-note">O histórico começa nesta versão do site. Alterações anteriores não registadas não são inventadas; para registar futuras atualizações, adiciona uma entrada ao histórico no código.</p>
+</section>
+<div class="grid" id="scripts"></div>
+<div class="msg" id="empty" style="display:none">Nenhum script encontrado.</div>
+</main>
+<section class="report-problem" aria-labelledby="report-title">
+  <div class="report-icon" aria-hidden="true">⚠️</div>
+  <h2 id="report-title">Encontraste um problema?</h2>
+  <p>O script não funciona ou encontraste algum erro? Avisa-me através do formulário.</p>
+  <a class="report-button" href="https://docs.google.com/forms/d/e/1FAIpQLSeyA6OmUjc732DIBJzu6k20JKI4oqppcd3jetRy31JlpX8ARQ/viewform?usp=publish-editor" target="_blank" rel="noopener noreferrer">🚩 Comunicar um problema ↗</a>
+</section>
+<footer>ViodrenScripts<br><div class="visit-counter"><span>👁️ Visitas únicas:</span> <strong id="visitCount">A carregar...</strong></div><div style="font-size:11px;color:#6f687d;margin-top:8px">Cada navegador é contado uma vez neste dispositivo.</div></footer>
+<script>
+/*
+  Contador partilhado: incrementa apenas na primeira visita deste navegador.
+  O registo local evita contar novamente quando a pessoa atualiza a página.
+  Limitação: outro navegador/dispositivo ou dados apagados podem contar de novo.
+*/
+(async function loadVisitCounter(){
+  const output = document.getElementById("visitCount");
+  const storageKey = "viodrenscripts_visit_counted_v1";
+  const apiBase = "https://abacus.jasoncameron.dev";
+  const namespace = "viodrenscripts";
+  const counterKey = "visitas-unicas-v1";
+
+  try {
+    if (!localStorage.getItem(storageKey)) {
+      const hit = await fetch(`${apiBase}/hit/${namespace}/${counterKey}`);
+      if (!hit.ok) throw new Error("Não foi possível registar a visita.");
+      localStorage.setItem(storageKey, "1");
+    }
+    const response = await fetch(`${apiBase}/get/${namespace}/${counterKey}`);
+    if (!response.ok) throw new Error("Não foi possível ler o contador.");
+    const data = await response.json();
+    const total = Number(data.value);
+    if (!Number.isFinite(total)) throw new Error("Resposta inválida do contador.");
+    output.textContent = total.toLocaleString("pt-PT");
+  } catch (error) {
+    output.textContent = "Indisponível";
+    console.error("Erro no contador de visitas:", error);
+  }
+})();
+</script>
+
+<script>
+/* ===== ADICIONA OS TEUS SCRIPTS AQUI ===== */
+const scripts = [
+  {
+    name:"Meu primeiro script (Ride a Pet)",
+    addedAt:"2026-10-11T00:00:00Z",
+    game:"Ride a Pet",
+    description:"Script para Ride a Pet (𝘼𝙏𝙐𝘼𝙇𝙄𝙕𝘼𝘾̧𝘼̃𝙊 𝟮) - 𝙉𝙚𝙘𝙚𝙨𝙨𝙞𝙩𝙖 𝙙𝙚 𝙆𝙀𝙔 (𝘼 𝙆𝙀𝙔 𝙚𝙨𝙩𝙖́ 𝙣𝙤𝙨 𝙑𝙄́𝘿𝙀𝙊𝙎 𝙖𝙣𝙩𝙚𝙧𝙞𝙤𝙧𝙚𝙨) - (𝙆𝙀𝙔 𝙍𝙀𝙐𝙏𝙄𝙇𝙄𝙕𝘼́𝙑𝙀𝙇!!!!!!).",
+    code:`loadstring(game:HttpGet("https://pastebin.com/raw/ST7xYxpu"))()`,
+    image:"https://github.com/ViodrenScripts/ViodrenScripts/blob/main/v%C3%ADd%201.png?raw=true"
+  },
+
+  {
+    name:"(ATUALIZADO) Ride a Pet",
+    addedAt:"2026-10-11T00:00:00Z",
+    game:"Ride a Pet",
+    description:"(ATUALIZADO) Script para Ride a Pet depois da nova atualização do jogo (𝘼𝙏𝙐𝘼𝙇𝙄𝙕𝘼𝘾̧𝘼̃𝙊 𝟯) - 𝙉𝙊 𝙆𝙀𝙔!!!!.",
+    code:`loadstring(game:HttpGet("https://raw.githubusercontent.com/MUshihara/Serenity-hub/main/loader.lua"))()`,
+    image:"https://github.com/ViodrenScripts/ViodrenScripts/blob/main/v%C3%ADdeo%202.png?raw=true"
+  },
+
+  {
+    name:"SCRIPT Steal a Egg",
+    addedAt:"2026-10-11T00:00:00Z",
+    game:"Steal a Egg",
+    description:"SCRIPT para Roube um Ovo (Steal a Egg) - NO KEY!!!.",
+    code:`loadstring(game:HttpGet("https://gist.githubusercontent.com/sourceshubs/1737c14cdba5c6fb472a995d555a50f1/raw/SourcesHubInstantStealNew"))()`,
+    image:"https://github.com/ViodrenScripts/ViodrenScripts/blob/main/4444.png?raw=true"
+  },
+
+  {
+    name:"[🎃EVENT] [ATUALIZADO] Ride A Pet Script",
+    addedAt:"2026-10-11T00:00:00Z",
+    game:"Ride a Pet",
+    description:"[🎃EVENT] [ATUALIZADO] Ride A Pet Script - NO KEY!!!.",
+    code:`loadstring(game:HttpGet("https://scriptblox.com/raw/Ride-A-Pet-Lumin-Hub-or-Keyless-228988"))()`,
+    image:"https://github.com/ViodrenScripts/ViodrenScripts/blob/main/IMXV5yGILlqQ0.png?raw=true"
+  }
+];
+
+/* Registos iniciais: daqui em diante, acrescenta uma entrada por cada atualização publicada. */
+const scriptUpdateHistory = [
+  {date:"2026-10-11", game:"Ride a Pet", script:"[🎃EVENT] [ATUALIZADO] Ride A Pet Script", detail:"Registo inicial do histórico para a versão atualmente disponível no site."},
+  {date:"2026-10-11", game:"Steal a Egg", script:"SCRIPT Steal a Egg", detail:"Registo inicial do histórico para a versão atualmente disponível no site."},
+  {date:"2026-10-11", game:"Ride a Pet", script:"(ATUALIZADO) Ride a Pet", detail:"Registo inicial do histórico para a versão atualmente disponível no site."},
+  {date:"2026-10-11", game:"Ride a Pet", script:"Meu primeiro script (Ride a Pet)", detail:"Registo inicial do histórico para a versão atualmente disponível no site."}
+];
+const historyBox=document.getElementById("scriptUpdateHistory");
+function renderScriptUpdateHistory(){
+  historyBox.innerHTML="";
+  const sorted=[...scriptUpdateHistory].sort((a,b)=>b.date.localeCompare(a.date));
+  sorted.forEach(entry=>{
+    const item=document.createElement("article");
+    item.className="history-entry";
+    const top=document.createElement("div");
+    top.className="history-entry-top";
+    const title=document.createElement("h3");
+    title.textContent=entry.script;
+    const date=document.createElement("time");
+    date.className="history-date";
+    date.dateTime=entry.date;
+    const parts=entry.date.split("-");
+    date.textContent=parts.length===3?`${parts[2]}/${parts[1]}/${parts[0]}`:entry.date;
+    top.append(title,date);
+    const game=document.createElement("span");
+    game.className="history-game";
+    game.textContent=entry.game;
+    const detail=document.createElement("p");
+    detail.textContent=entry.detail;
+    item.append(top,game,detail);
+    historyBox.appendChild(item);
+  });
+}
+const box=document.getElementById("scripts"), search=document.getElementById("search"), empty=document.getElementById("empty"), latestBox=document.getElementById("latestScripts");
+const historyPanel=document.getElementById("historyPanel"), statsPanel=document.getElementById("statsPanel"), latestPanel=document.getElementById("latestPanel");
+const FAVORITES_KEY="viodrenscripts_favorites_v1";
+let favorites=[];
+try {
+  const saved=JSON.parse(localStorage.getItem(FAVORITES_KEY) || "[]");
+  if(Array.isArray(saved)) favorites=saved;
+} catch(error) { favorites=[]; }
+let activeGame="Ride a Pet";
+const NEW_BADGE_DURATION_MS=7*24*60*60*1000;
+function isNewScript(s){
+  const addedAt=Date.parse(s.addedAt || "");
+  if(!Number.isFinite(addedAt)) return false;
+  const age=Date.now()-addedAt;
+  return age>=0 && age<NEW_BADGE_DURATION_MS;
+}
+function renderLatestScripts(){
+  latestBox.innerHTML="";
+  // A secção mantém os três scripts mais recentes; o selo NOVO expira após 7 dias.
+  scripts.slice(-3).reverse().forEach((s,index)=>{
+    const card=document.createElement("article");
+    card.className="latest-card";
+    const tag=document.createElement("span");
+    tag.className="tag";
+    tag.textContent=s.game;
+    const heading=document.createElement("h3");
+    heading.textContent=s.name;
+    const marker=isNewScript(s)?document.createElement("span"):null;
+    if(marker){
+      marker.className="latest-new";
+      marker.textContent="✦ NOVO";
+      marker.setAttribute("aria-label","Script adicionado há menos de 7 dias");
+    }
+    const button=document.createElement("button");
+    button.type="button";
+    button.textContent="📜 Ver este script";
+    button.addEventListener("click",()=>{
+      activeGame=s.game;
+      search.value=s.name;
+      document.querySelectorAll(".tab").forEach(tab=>tab.classList.toggle("active",tab.dataset.game===activeGame));
+      render();
+      document.getElementById("scripts").scrollIntoView({behavior:"smooth",block:"start"});
+    });
+    if(marker) card.append(tag,marker,heading,button);
+    else card.append(tag,heading,button);
+    latestBox.appendChild(card);
+  });
+}
+function updateStats(){
+ document.getElementById("statTotal").textContent=scripts.length.toLocaleString("pt-PT");
+ document.getElementById("statRide").textContent=scripts.filter(s=>s.game==="Ride a Pet").length.toLocaleString("pt-PT");
+ document.getElementById("statEgg").textContent=scripts.filter(s=>s.game==="Steal a Egg").length.toLocaleString("pt-PT");
+ document.getElementById("statFavorites").textContent=favorites.length.toLocaleString("pt-PT");
+}
+function render(){
+ updateStats();
+ renderLatestScripts();
+ const q=search.value.toLowerCase();
+ box.innerHTML="";
+ const list=scripts.filter(s=>(activeGame==="__favorites" ? favorites.includes(s.name) : s.game===activeGame) && (s.name+" "+s.game+" "+s.description).toLowerCase().includes(q));
+ empty.textContent=activeGame==="__favorites" ? "Ainda não tens scripts favoritos. Carrega na ⭐ de um script para o guardar aqui." : "Nenhum script encontrado.";
+ empty.style.display=list.length?"none":"block";
+ list.forEach((s)=>{
+   const i=scripts.indexOf(s);
+   const isFavorite=favorites.includes(s.name);
+   const c=document.createElement("article"); c.className="card";
+   c.innerHTML=`<span class="tag">${s.game}</span><h2>${s.name}</h2><p>${s.description}</p>
+   <button class="favorite-btn ${isFavorite?"is-favorite":""}" type="button" aria-pressed="${isFavorite}">${isFavorite?"⭐ Guardado nos favoritos":"☆ Adicionar aos favoritos"}</button><br>
+   <button class="show" type="button">📜 Mostrar Script</button>
+   <button class="copy" type="button">📋 Copiar Script</button>
+   <div class="code" id="code${i}"></div>`;
+   const favoriteBtn=c.querySelector(".favorite-btn");
+   favoriteBtn.onclick=()=>{
+     if(favorites.includes(s.name)) favorites=favorites.filter(name=>name!==s.name);
+     else favorites.push(s.name);
+     try { localStorage.setItem(FAVORITES_KEY,JSON.stringify(favorites)); }
+     catch(error) { console.warn("Não foi possível guardar os favoritos neste navegador.",error); }
+     render();
+   };
+   const codeEl=c.querySelector(".code");
+   codeEl.textContent=s.code;
+   const showBtn=c.querySelector(".show");
+   showBtn.onclick=()=>{
+     const opening=codeEl.style.display!=="block";
+     codeEl.style.display=opening?"block":"none";
+     showBtn.textContent=opening?"🙈 Esconder Script":"📜 Mostrar Script";
+   };
+   const copyBtn=c.querySelector(".copy");
+   copyBtn.onclick=async()=>{
+     try {
+       await navigator.clipboard.writeText(s.code);
+       copyBtn.textContent="✅ Copiado!";
+       setTimeout(()=>copyBtn.textContent="📋 Copiar Script",1500);
+     } catch(error) {
+       codeEl.style.display="block";
+       showBtn.textContent="🙈 Esconder Script";
+       alert("Não foi possível copiar automaticamente. Seleciona o código mostrado e copia-o.");
+     }
+   };
+   const img=document.createElement("img");
+   img.className="card-image"; img.src=s.image; img.alt="Imagem de "+s.game;
+   img.onerror=()=>{img.style.display="none";};
+   c.append(img);
+   box.appendChild(c);
+ });
+}
+search.addEventListener("input",render);
+
+document.querySelectorAll(".tab").forEach(tab=>{
+  tab.addEventListener("click",()=>{
+    activeGame=tab.dataset.game;
+    document.querySelectorAll(".tab").forEach(t=>t.classList.toggle("active",t===tab));
+    search.value="";
+    const showingHistory=activeGame==="__history";
+    historyPanel.style.display=showingHistory?"block":"none";
+    statsPanel.style.display=showingHistory?"none":"";
+    latestPanel.style.display=showingHistory?"none":"";
+    box.style.display=showingHistory?"none":"";
+    empty.style.display="none";
+    search.style.display=showingHistory?"none":"";
+    if(!showingHistory) render();
+  });
+});
+
+renderScriptUpdateHistory();
+render();
+</script>
+</body>
+</html>
