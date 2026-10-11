@@ -21,8 +21,8 @@ footer{text-align:center;color:#8f879e;padding:30px}.visit-counter{margin-top:12
 .report-icon{font-size:28px;margin-bottom:8px}.report-problem h2{margin:0 0 9px;font-size:23px;color:#fff}.report-problem p{color:#aaa9ba;line-height:1.6;margin:0 auto 18px;max-width:520px;font-size:14px}
 .report-button{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 18px;border-radius:11px;background:#8b5cf6;color:#fff;font-weight:bold;text-decoration:none;transition:background .2s,transform .2s}
 .report-button:hover{background:#7549dc;transform:translateY(-1px)}.report-button:focus-visible{outline:2px solid #c4b5fd;outline-offset:3px}
-.youtube-button{display:inline-flex;align-items:center;justify-content:center;gap:9px;margin:0 0 20px;padding:12px 18px;border-radius:11px;background:#ff0033;color:#fff;text-decoration:none;font-weight:bold;transition:background .2s,transform .2s}.youtube-button:hover{background:#d9002b;transform:translateY(-1px)}.youtube-button:focus-visible{outline:2px solid #c4b5fd;outline-offset:3px}
-.favorite-btn{margin:0 0 10px;background:#29233a;border:1px solid #4b3a68;color:#d8c7ff}.favorite-btn:hover{background:#3b2c55}.favorite-btn.is-favorite{background:#5a3a83;border-color:#a78bfa;color:#fff}.favorite-filter{border-color:#5b4380;color:#d8c7ff}.favorite-filter.active{background:#8b5cf6;color:#fff}.history-filter{border-color:#5b4380;color:#d8c7ff}.history-filter.active{background:#8b5cf6;color:#fff}
+.youtube-button{display:inline-flex;align-items:center;justify-content:center;gap:10px;margin:0 0 20px;padding:12px 18px;border-radius:11px;background:#e62117;color:#fff;text-decoration:none;font-weight:bold;transition:background .2s,transform .2s}.youtube-button:hover{background:#c91d14;transform:translateY(-1px)}.youtube-button:focus-visible{outline:2px solid #c4b5fd;outline-offset:3px}.youtube-icon{width:22px;height:22px;display:block;flex:none}
+.favorite-btn{margin:0 0 10px;background:#29233a;border:1px solid #4b3a68;color:#d8c7ff}.favorite-btn:hover{background:#3b2c55}.favorite-btn.is-favorite{background:#5a3a83;border-color:#a78bfa;color:#fff}.favorite-filter{background:#123b38;border-color:#267a70;color:#a7f3d0}.favorite-filter:hover{background:#19534d}.favorite-filter.active{background:#0f766e;border-color:#5eead4;color:#fff;box-shadow:0 0 0 1px rgba(94,234,212,.22)}.history-filter{background:#493018;border-color:#8f5b25;color:#fed7aa}.history-filter:hover{background:#62401f}.history-filter.active{background:#b96b16;border-color:#fbbf24;color:#fff;box-shadow:0 0 0 1px rgba(251,191,36,.22)}
 .stats-panel{margin:0 0 24px;padding:18px;background:linear-gradient(145deg,#171326,#12121d);border:1px solid #332547;border-radius:16px}
 .latest-panel{margin:0 0 24px;padding:18px;background:linear-gradient(145deg,#19142a,#12121d);border:1px solid #3b2b56;border-radius:16px}
 .latest-heading{display:flex;align-items:center;gap:9px;margin:0 0 6px;font-size:20px}
@@ -56,7 +56,7 @@ footer{text-align:center;color:#8f879e;padding:30px}.visit-counter{margin-top:12
 <header>
 <h1>Viodren<span>Scripts</span></h1>
 <div class="sub">Roblox Scripts • Atualizado pelo Viodren</div>
-<a class="youtube-button" href="https://youtube.com/@viodren_scripts" target="_blank" rel="noopener noreferrer" aria-label="Visitar o canal de YouTube ViodrenScripts">▶️ Visitar canal no YouTube</a><br>
+<a class="youtube-button" href="https://youtube.com/@viodren_scripts" target="_blank" rel="noopener noreferrer" aria-label="Visitar o canal de YouTube ViodrenScripts"><svg class="youtube-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2" y="5" width="20" height="14" rx="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 9l5 3-5 3z" fill="currentColor"/></svg>Visitar canal no YouTube</a><br>
 <input class="search" id="search" placeholder="🔎 Procurar um script...">
 <div class="tabs"><button class="tab active" data-game="Ride a Pet">🐾 Ride a Pet</button><button class="tab" data-game="Steal a Egg">🥚 Steal a Egg</button><button class="tab favorite-filter" data-game="__favorites">⭐ Favoritos</button><button class="tab history-filter" data-game="__history">🗂️ Histórico de atualizações</button></div>
 </header>
@@ -165,10 +165,10 @@ const scripts = [
 
 /* Registos iniciais: daqui em diante, acrescenta uma entrada por cada atualização publicada. */
 const scriptUpdateHistory = [
-  {date:"2026-10-10", game:"Ride a Pet", script:"[🎃EVENT] [ATUALIZADO] Ride A Pet Script", detail:"Registo inicial do histórico para a versão atualmente disponível no site."},
-  {date:"2026-10-09", game:"Steal a Egg", script:"SCRIPT Steal a Egg", detail:"Registo inicial do histórico para a versão atualmente disponível no site."},
-  {date:"2026-10-06", game:"Ride a Pet", script:"(ATUALIZADO) Ride a Pet", detail:"Registo inicial do histórico para a versão atualmente disponível no site."},
-  {date:"2026-10-05", game:"Ride a Pet", script:"Meu primeiro script (Ride a Pet)", detail:"Registo inicial do histórico para a versão atualmente disponível no site."}
+  {date:"2026-10-11", game:"Ride a Pet", script:"[🎃EVENT] [ATUALIZADO] Ride A Pet Script", detail:"Registo inicial do histórico para a versão atualmente disponível no site."},
+  {date:"2026-10-11", game:"Steal a Egg", script:"SCRIPT Steal a Egg", detail:"Registo inicial do histórico para a versão atualmente disponível no site."},
+  {date:"2026-10-11", game:"Ride a Pet", script:"(ATUALIZADO) Ride a Pet", detail:"Registo inicial do histórico para a versão atualmente disponível no site."},
+  {date:"2026-10-11", game:"Ride a Pet", script:"Meu primeiro script (Ride a Pet)", detail:"Registo inicial do histórico para a versão atualmente disponível no site."}
 ];
 const historyBox=document.getElementById("scriptUpdateHistory");
 function renderScriptUpdateHistory(){
