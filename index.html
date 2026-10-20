@@ -143,7 +143,7 @@ footer{color:#b5a7bd}
 <div class="sub">Roblox Scripts • Atualizado pelo Viodren</div>
 <a class="youtube-button" href="https://youtube.com/@viodren_scripts" target="_blank" rel="noopener noreferrer" aria-label="Visitar o canal de YouTube ViodrenScripts"><svg class="youtube-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2" y="5" width="20" height="14" rx="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 9l5 3-5 3z" fill="currentColor"/></svg>Visitar canal no YouTube</a><br>
 <input class="search" id="search" placeholder="🔎 Procurar um script...">
-<div class="tabs"><button class="tab active" data-game="Ride a Pet">🐾 Ride a Pet</button><button class="tab" data-game="Steal a Egg">🥚 Steal a Egg</button><button class="tab" data-game="Car Dealership Tycoon">🚗 CDT</button><button class="tab favorite-filter" data-game="__favorites">⭐ Favoritos</button><button class="tab history-filter" data-game="__history">🗂️ Histórico de atualizações</button></div>
+<div class="tabs"><button class="tab active" data-game="Ride a Pet">🐾 Ride a Pet</button><button class="tab" data-game="Steal a Egg">🥚 Steal a Egg</button><button class="tab" data-game="Car Dealership Tycoon">🚗 CDT</button><button class="tab" data-game="99 Noites na Floresta">🌲 99 Noites na Floresta</button><button class="tab favorite-filter" data-game="__favorites">⭐ Favoritos</button><button class="tab history-filter" data-game="__history">🗂️ Histórico de atualizações</button></div>
 </header>
 <main>
 <section class="stats-panel" id="statsPanel" aria-labelledby="stats-title">
@@ -153,6 +153,7 @@ footer{color:#b5a7bd}
     <div class="stat-card"><div class="stat-label">🐾 Ride a Pet</div><div class="stat-value" id="statRide">—</div><small>Scripts deste jogo</small></div>
     <div class="stat-card"><div class="stat-label">🥚 Steal a Egg</div><div class="stat-value" id="statEgg">—</div><small>Scripts deste jogo</small></div>
     <div class="stat-card"><div class="stat-label">🚗 Car Dealership Tycoon (CDT)</div><div class="stat-value" id="statCDT">—</div><small>Scripts deste jogo</small></div>
+    <div class="stat-card"><div class="stat-label">🌲 99 Noites na Floresta</div><div class="stat-value" id="stat99Noites">—</div><small>Scripts deste jogo</small></div>
     <div class="stat-card"><div class="stat-label">⭐ Os teus favoritos</div><div class="stat-value" id="statFavorites">—</div><small>Guardados neste navegador</small></div>
   </div>
 </section>
@@ -353,6 +354,7 @@ function updateStats(){
  document.getElementById("statRide").textContent=scripts.filter(s=>s.game==="Ride a Pet").length.toLocaleString("pt-PT");
  document.getElementById("statEgg").textContent=scripts.filter(s=>s.game==="Steal a Egg").length.toLocaleString("pt-PT");
  document.getElementById("statCDT").textContent=scripts.filter(s=>s.game==="Car Dealership Tycoon").length.toLocaleString("pt-PT");
+ document.getElementById("stat99Noites").textContent=scripts.filter(s=>s.game==="99 Noites na Floresta").length.toLocaleString("pt-PT");
  document.getElementById("statFavorites").textContent=favorites.length.toLocaleString("pt-PT");
 }
 function render(){
@@ -361,7 +363,7 @@ function render(){
  const q=search.value.toLowerCase();
  box.innerHTML="";
  const list=scripts.filter(s=>(activeGame==="__favorites" ? favorites.includes(s.name) : s.game===activeGame) && (s.name+" "+s.game+" "+s.description).toLowerCase().includes(q));
- empty.textContent=activeGame==="__favorites" ? "Ainda não tens scripts favoritos. Carrega na ⭐ de um script para o guardar aqui." : activeGame==="Car Dealership Tycoon" ? "Ainda não há scripts de Car Dealership Tycoon (CDT). Em breve!" : "Nenhum script encontrado.";
+ empty.textContent=activeGame==="__favorites" ? "Ainda não tens scripts favoritos. Carrega na ⭐ de um script para o guardar aqui." : activeGame==="Car Dealership Tycoon" ? "Ainda não há scripts de Car Dealership Tycoon (CDT). Em breve!" : activeGame==="99 Noites na Floresta" ? "Ainda não há scripts de 99 Noites na Floresta. Em breve!" : "Nenhum script encontrado.";
  empty.style.display=list.length?"none":"block";
  list.forEach((s)=>{
    const i=scripts.indexOf(s);
