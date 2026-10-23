@@ -21,7 +21,17 @@ footer{text-align:center;color:#8f879e;padding:30px}.visit-counter{margin-top:12
 .report-icon{font-size:28px;margin-bottom:8px}.report-problem h2{margin:0 0 9px;font-size:23px;color:#fff}.report-problem p{color:#aaa9ba;line-height:1.6;margin:0 auto 18px;max-width:520px;font-size:14px}
 .report-button{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 18px;border-radius:11px;background:#8b5cf6;color:#fff;font-weight:bold;text-decoration:none;transition:background .2s,transform .2s}
 .report-button:hover{background:#7549dc;transform:translateY(-1px)}.report-button:focus-visible{outline:2px solid #c4b5fd;outline-offset:3px}
-.youtube-button{display:inline-flex;align-items:center;justify-content:center;gap:10px;margin:0 0 20px;padding:12px 18px;border-radius:11px;background:#e62117;color:#fff;text-decoration:none;font-weight:bold;transition:background .2s,transform .2s}.youtube-button:hover{background:#c91d14;transform:translateY(-1px)}.youtube-button:focus-visible{outline:2px solid #c4b5fd;outline-offset:3px}.youtube-icon{width:22px;height:22px;display:block;flex:none}
+.youtube-button{display:inline-flex;align-items:center;justify-content:center;gap:10px;margin:0 0 20px;padding:12px 18px;border-radius:11px;background:#e62117;color:#fff;text-decoration:none;font-weight:bold;transition:background .2s,transform .2s}.youtube-button:hover{background:#c91d14;transform:translateY(-1px)}.youtube-button:focus-visible{outline:2px solid #c4b5fd;outline-offset:3px}.youtube-icon{width:22px;height:22px;display:block;flex:none}.social-icon{width:23px;height:23px;display:block;flex:none;filter:drop-shadow(0 0 5px currentColor)}.discord-icon{color:#fff}
+.discord-button{display:inline-flex;align-items:center;justify-content:center;gap:10px;margin:0 0 20px 8px;padding:12px 18px;border-radius:11px;background:linear-gradient(135deg,#5865f2,#404cca);color:#fff;text-decoration:none;font-weight:bold;transition:background .2s,transform .2s}
+.discord-button:hover{background:linear-gradient(135deg,#7180ff,#4d59df);transform:translateY(-1px)}
+.discord-button:focus-visible{outline:2px solid #c4b5fd;outline-offset:3px}
+.community-panel{width:min(900px,92%);margin:10px auto 28px;padding:26px 20px;text-align:center;background:linear-gradient(145deg,#21163b,#13131f);border:1px solid #49316c;border-radius:18px}
+.community-panel h2{margin:0 0 9px;font-size:23px}
+.community-panel p{color:#b8b3c8;line-height:1.6;margin:0 auto 18px;max-width:620px;font-size:14px}
+.community-links{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.community-links a{display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border-radius:11px;text-decoration:none;color:#fff;font-weight:bold}
+.community-discord{background:#5865f2}.community-youtube{background:#d92323}
+@media(max-width:520px){.discord-button{margin-left:0}.community-links a{width:100%}}
 .favorite-btn{margin:0 0 10px;background:#29233a;border:1px solid #4b3a68;color:#d8c7ff}.favorite-btn:hover{background:#3b2c55}.favorite-btn.is-favorite{background:#5a3a83;border-color:#a78bfa;color:#fff}.favorite-filter{background:#123b38;border-color:#267a70;color:#a7f3d0}.favorite-filter:hover{background:#19534d}.favorite-filter.active{background:#0f766e;border-color:#5eead4;color:#fff;box-shadow:0 0 0 1px rgba(94,234,212,.22)}.history-filter{background:#493018;border-color:#8f5b25;color:#fed7aa}.history-filter:hover{background:#62401f}.history-filter.active{background:#b96b16;border-color:#fbbf24;color:#fff;box-shadow:0 0 0 1px rgba(251,191,36,.22)}
 .stats-panel{margin:0 0 24px;padding:18px;background:linear-gradient(145deg,#171326,#12121d);border:1px solid #332547;border-radius:16px}
 .latest-panel{margin:0 0 24px;padding:18px;background:linear-gradient(145deg,#19142a,#12121d);border:1px solid #3b2b56;border-radius:16px}
@@ -141,7 +151,7 @@ footer{color:#b5a7bd}
 <header>
 <h1>Viodren<span>Scripts</span></h1>
 <div class="sub">Roblox Scripts • Atualizado pelo Viodren</div>
-<a class="youtube-button" href="https://youtube.com/@viodren_scripts" target="_blank" rel="noopener noreferrer" aria-label="Visitar o canal de YouTube ViodrenScripts"><svg class="youtube-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2" y="5" width="20" height="14" rx="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 9l5 3-5 3z" fill="currentColor"/></svg>Visitar canal no YouTube</a><br>
+<a class="youtube-button" href="https://youtube.com/@viodren_scripts" target="_blank" rel="noopener noreferrer" aria-label="Visitar o canal de YouTube ViodrenScripts"><svg class="youtube-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2" y="5" width="20" height="14" rx="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 9l5 3-5 3z" fill="currentColor"/></svg>Visitar canal no YouTube</a><a class="discord-button" href="https://discord.gg/FTzSun4mp2" target="_blank" rel="noopener noreferrer" aria-label="Entrar no servidor Discord ViodrenScripts"><svg class="social-icon discord-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M19.7 5.2A18.2 18.2 0 0 0 15.2 3.8l-.6 1.2a16.7 16.7 0 0 0-5.2 0l-.6-1.2a18.2 18.2 0 0 0-4.5 1.4C1.5 9.4.7 13.5 1.1 17.5a18.3 18.3 0 0 0 5.5 2.8l1.2-2a11.8 11.8 0 0 1-1.9-.9l.5-.4a13 13 0 0 0 11.2 0l.5.4a11.8 11.8 0 0 1-1.9.9l1.2 2a18.3 18.3 0 0 0 5.5-2.8c.5-4.6-.8-8.7-3.2-12.3ZM8.7 14.8c-1.1 0-2-1-2-2.2s.9-2.2 2-2.2 2 1 2 2.2-.9 2.2-2 2.2Zm6.6 0c-1.1 0-2-1-2-2.2s.9-2.2 2-2.2 2 1 2 2.2-.9 2.2-2 2.2Z"/></svg>Entrar no Discord</a><br>
 <input class="search" id="search" placeholder="🔎 Procurar um script...">
 <div class="tabs"><button class="tab active" data-game="Ride a Pet">🐾 Ride a Pet</button><button class="tab" data-game="Steal a Egg">🥚 Steal a Egg</button><button class="tab" data-game="Car Dealership Tycoon">🚗 CDT</button><button class="tab" data-game="99 Noites na Floresta">🌲 99 Noites na Floresta</button><button class="tab favorite-filter" data-game="__favorites">⭐ Favoritos</button><button class="tab history-filter" data-game="__history">🗂️ Histórico de atualizações</button></div>
 </header>
@@ -176,6 +186,14 @@ footer{color:#b5a7bd}
   <h2 id="report-title">Encontraste um problema?</h2>
   <p>O script não funciona ou encontraste algum erro? Avisa-me através do formulário.</p>
   <a class="report-button" href="https://docs.google.com/forms/d/e/1FAIpQLSeyA6OmUjc732DIBJzu6k20JKI4oqppcd3jetRy31JlpX8ARQ/viewform?usp=publish-editor" target="_blank" rel="noopener noreferrer">🚩 Comunicar um problema ↗</a>
+</section>
+<section class="community-panel" aria-labelledby="community-title">
+  <h2 id="community-title">💜 Junta-te à comunidade ViodrenScripts</h2>
+  <p>Entra no Discord para acompanhares a comunidade e visita o YouTube para veres os novos vídeos e atualizações de scripts.</p>
+  <div class="community-links">
+    <a class="community-discord" href="https://discord.gg/FTzSun4mp2" target="_blank" rel="noopener noreferrer"><svg class="social-icon discord-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M19.7 5.2A18.2 18.2 0 0 0 15.2 3.8l-.6 1.2a16.7 16.7 0 0 0-5.2 0l-.6-1.2a18.2 18.2 0 0 0-4.5 1.4C1.5 9.4.7 13.5 1.1 17.5a18.3 18.3 0 0 0 5.5 2.8l1.2-2a11.8 11.8 0 0 1-1.9-.9l.5-.4a13 13 0 0 0 11.2 0l.5.4a11.8 11.8 0 0 1-1.9.9l1.2 2a18.3 18.3 0 0 0 5.5-2.8c.5-4.6-.8-8.7-3.2-12.3ZM8.7 14.8c-1.1 0-2-1-2-2.2s.9-2.2 2-2.2 2 1 2 2.2-.9 2.2-2 2.2Zm6.6 0c-1.1 0-2-1-2-2.2s.9-2.2 2-2.2 2 1 2 2.2-.9 2.2-2 2.2Z"/></svg>Entrar no Discord</a>
+    <a class="community-youtube" href="https://www.youtube.com/@Viodren_Scripts" target="_blank" rel="noopener noreferrer"><svg class="social-icon youtube-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2" y="4.5" width="20" height="15" rx="4" fill="#fff"/><path d="M10 8.5 16 12l-6 3.5z" fill="#e62117"/></svg>Ver o canal no YouTube</a>
+  </div>
 </section>
 <footer>ViodrenScripts<br><div class="visit-counter"><span>👁️ Visitas únicas:</span> <strong id="visitCount">A carregar...</strong></div><div style="font-size:11px;color:#6f687d;margin-top:8px">Cada navegador é contado uma vez neste dispositivo.</div></footer>
 <script>
